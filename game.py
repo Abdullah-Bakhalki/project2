@@ -59,12 +59,7 @@ def print_room_items(room):
     Note: <BLANKLINE> here means that doctest should expect a blank line.
 
     """
-
-
-    if len( room ["items"] ) == 0:
-        print("(no output)")
-        print()
-
+        
 
     if len(room ["items"])>0:
         list_items = []
@@ -72,7 +67,7 @@ def print_room_items(room):
         for i in room["items"]:
             list_items.append(i)
 
-        print("There is "+list_of_items(list_items)+".")
+        print("There is "+list_of_items(list_items)+" here.")
         print()
 
 
@@ -93,12 +88,12 @@ def print_inventory_items(items):
     a = 0
 
     for item in items:
-        string_list = string_list + item["id"]
-        if a > 0 and a + 1 != len(items):
-            string_list = string_list + ", "
-        if a+1 == len(items):
-            string_list = string_list + "."
-        a = a + 1
+        string_list = string_list + item["name"]+", "
+
+    string_list=string_list[:-2]+"."
+    print(string_list)
+    print()
+        
 
 
 def print_room(room):
@@ -155,7 +150,6 @@ def print_room(room):
     print(room["description"])
     print()
     print_room_items(room)
-    print()
 
 
     #
