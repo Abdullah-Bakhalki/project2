@@ -275,10 +275,11 @@ def execute_take(item_id):
     there is no such item in the room, this function prints
     "You cannot take that."
     """
+    global inventory
+    global current_room
     if item_id in current_room["items"]:
         inventory.append(item_id)
         current_room["items"].remove(item_id)
-
     else:
         print("You cannot take that.")
     
@@ -288,6 +289,8 @@ def execute_drop(item_id):
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."
     """
+    global inventory
+    global current_room
     if item_id in inventory:
         current_room["items"].append(item_id)
         inventory.remove(item_id)
@@ -383,6 +386,9 @@ def main():
 
         # Execute the player's command
         execute_command(command)
+        if current_room == rooms["Parking"]:
+            print("You won")
+            break
 
 
 
