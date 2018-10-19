@@ -293,7 +293,7 @@ def execute_drop(item_id):
     """
     global inventory
     global current_room
-    for r in current_room["items"]:
+    for r in inventory:
         
         if r["id"] == item_id:
             
