@@ -260,9 +260,10 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."
     """
-    a = player.current_room["exits"]
+    global current_room
+    a = current_room["exits"]
     if direction in a:
-        player.current_room = move(current_room["exits"], direction)
+        current_room = move(current_room["exits"], direction)
 
     else:
         print("You cannot go there.")
