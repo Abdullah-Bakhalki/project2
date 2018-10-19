@@ -277,11 +277,13 @@ def execute_take(item_id):
     """
     global inventory
     global current_room
-    if item_id in current_room["items"]:
-        inventory.append(item_id)
-        current_room["items"].remove(item_id)
-    else:
-        print("You cannot take that.")
+    for i in current_room["items"]:
+        
+        if i["id"] == item_id:
+            inventory.append(i)
+            current_room["items"].remove(i)
+        else:
+            print("You cannot take that.")
     
 
 def execute_drop(item_id):
@@ -291,12 +293,13 @@ def execute_drop(item_id):
     """
     global inventory
     global current_room
-    if item_id in inventory:
-        current_room["items"].append(item_id)
-        inventory.remove(item_id)
+    for i in current_room["items"]:
+        if i["id"] == item_id:
+            current_room["items"].append(i)
+            inventory.remove(i)
 
-    else:
-        print("You cannot drop that.")
+        else:
+            print("You cannot drop that.")
 
 
     
