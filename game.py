@@ -293,10 +293,12 @@ def execute_drop(item_id):
     """
     global inventory
     global current_room
-    for i in current_room["items"]:
-        if i["id"] == item_id:
-            current_room["items"].append(i)
-            inventory.remove(i)
+    for r in current_room["items"]:
+        
+        if r["id"] == item_id:
+            
+            current_room["items"].append(r)
+            inventory.remove(r)
 
         else:
             print("You cannot drop that.")
